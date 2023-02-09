@@ -20,11 +20,11 @@ module cv32e40p_clock_gate (
 );
 
   logic clk_en;
-
+/* verilator lint_off COMBDLY */
   always_latch begin
     if (clk_i == 1'b0) clk_en <= en_i | scan_cg_en_i;
   end
-
+/* verilator lint_on COMBDLY */
   assign clk_o = clk_i & clk_en;
 
 endmodule  // cv32e40p_clock_gate
